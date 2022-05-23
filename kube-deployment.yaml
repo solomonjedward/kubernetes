@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+name: scando-prod
+labels:
+app: scando-app
+spec:
+replicas: 1
+selector:
+matchLabels:
+app: scando-app
+template:
+metadata:
+labels:
+app: scando-app
+spec:
+containers:
+- name: scando-app
+image: 744012312434.dkr.ecr.ap-south-1.amazonaws.com/scando-springboot:v1.0
+ports:
+- containerPort: 8081
+- containerPort: 5432
